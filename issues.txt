@@ -1,0 +1,2 @@
+- Problem to access the USDA webservice using JSON
+	->Solution: use a php proxy service to convert the call
