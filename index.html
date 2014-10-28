@@ -10,85 +10,92 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
 
+    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/d3/radar-chart.min.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+    <header class="site-header">
+        <div class="container">
+            <img src="img/header.jpg" class="header-img" />
+        </div>
+    </header>
+    <div class="main-content">
+        <div class="container">
+            <h2>Nutrition Facts Overall</h2>
+            <div class="radar-header cf">
+                <label class="label-food">Food 1:</label>
+                <select id="selectFood1" class="foodSelector">
+                    <optgroup label="Cheeseburgers">
+                        <option value="21233">MC Donald's</option>
+                        <option value="21251">Burger King</option>
+                    </optgroup>
+                    <optgroup label="Tuna Sub">
+                        <option value="21214">SUBWAY Tuna Sub</option>
+                    </optgroup>    
+                </select>
+
+                <label class="label-food">Food 2:</label>
+                <select id="selectFood2" class="foodSelector">
+                    <optgroup label="Cheeseburgers">
+                        <option value="21233">MC Donald's</option>
+                        <option value="21251" selected = "true">Burger King</option>
+                    </optgroup>
+                    <optgroup label="Tuna Sub">
+                        <option value="21214">SUBWAY Tuna Sub</option>
+                    </optgroup>
+                </select>
+                <button id="checkFood" class="btt-check">Check</button>
+            </div>
+            <div class="dashb-painel-2cols cf">
+                    <div class="col col-radar">
+                        <div class="radar-panel">
+                            <div id="results" class="radar-container">
+                                Choose the foods and click <b>Check</b> to compare...
+                            </div>
+                        </div>    
+                    </div>
+                    <div class="col col-info">
+                        <p><b>Information</b></p>
+                        <div class="panel-food-info" id="panelFoodInfo">
+                            
+                        </div>    
+                    </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+
+    </footer>
+
     <!--[if lt IE 8]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->         
-    <p>Which isyour category?</p>
-    Age Group:
-    <select id="selectAgeGroup"> 
-        <optgroup label="Children"> 
-            <option value="1–3y">1 - 3</option>
-            <option value="4–8y">4 -8</option> 
-        </optgroup>
-        <optgroup label="Male">
-            <option value="M9–13y">9 - 13</option>
-            <option value="M14-18y">14 - 18</option>
-            <option value="M19–30y" selected="true">19 - 30</option> 
-            <option value="M31–50y">31 - 50</option> 
-            <option value="M51–70y">51 - 70</option> 
-            <option value="M>70y">> 70</option>
-        </optgroup>
-        <optgroup label="Female">
-            <option value="F9–13y">9 - 13</option>
-            <option value="F14-18y">14 - 18</option>
-            <option value="F19–30y" selected="true">19 - 30</option> 
-            <option value="F31–50y">31 - 50</option> 
-            <option value="F51–70y">51 - 70</option> 
-            <option value="F>70y">> 70</option>
-        </optgroup>
-    </select>
-    Years
-    <br />
-    <br />
-    Food:
-    <select id="selectFood">
-        <optgroup label="Hamburgers">
-            <option value="21228">MC Donald's</option>
-            <option value="21250">Burger King</option>
-        </optgroup>
-    </select>
-    <div id="#results">
-    </div>
     <script src="js/jquery.min.js"></script>
+    <script src="js/d3/d3.v3.js"></script>
+    <script src="js/d3/radar-chart.min.js"></script>
+    <script src="js/script.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-            /*$.getJSON("dris.json", function( data ) {
-                dris = data;
-                console.log(dris);
-            });*/
 
-            url = "http://api.data.gov/usda/ndb/reports/?ndbno=21228&type=f&callback=?&format=json&api_key=vkPhid8P7v73RKGZHuMoE3exRVM2lnkPPY8tqTqL";
+            $("#checkFood").click(function(){
+                var jxhr = [];
+                cleanFoodData();
+                
+                $.each($(".foodSelector"), function(i, foodSelector){
+                    jxhr.push(
+                        $.getJSON("secure/requestFood.php?food_id="+$(foodSelector).val(), function( data ) {
+                            pushFoodData(data);
+                        })
+                    );
+                });
 
-            urlTeste = "http://api.data.gov/census/american-community-survey/v1/2011/populations/states?api_key=vkPhid8P7v73RKGZHuMoE3exRVM2lnkPPY8tqTqL";
-
-            $("#selectFood").change(function(){
-                /*$.ajax({
-                    url: 'http://api.data.gov/usda/ndb/reports/?ndbno=21228&type=f&format=json&api_key=vkPhid8P7v73RKGZHuMoE3exRVM2lnkPPY8tqTqL&callback=?',
-                    dataType: 'jsonp',
-                    crossDomain: true
-                }).done(function(data) {
-                    var jsonString = JSON.stringify(data);
-                    console.log(jsonString);
-                });*/
-
-                $.getJSON(url, function( data ) {
-                  console.log(data);
-                  /*var items = [];
-                  $.each( data, function( key, val ) {
-                    items.push( "<li id='" + key + "'>" + val + "</li>" );
-                  });
-                 
-                  $( "<ul/>", {
-                    "class": "my-new-list",
-                    html: items.join( "" )
-                  }).appendTo( "body" );
-                  */
+                $.when.apply($, jxhr).done(function() {
+                    createChart("results");
+                    $("#panelFoodInfo .food-info").show();
                 });
             });
         });
