@@ -1,0 +1,31 @@
+{
+  "exercises":{
+
+    "Walking":{
+
+      "image":"img/walking.png",
+      "met":"3.5"
+
+    },
+
+    "Running":{
+
+      "image":"img/running.png",
+      "met":"9"
+
+    },
+
+    "Cycling":{
+
+      "image":"img/cycling.png",
+      "met":"8"
+    },
+
+    "Lifting":{
+      "image":"img/lifting.png",
+      "met":"6"
+    }
+
+  }
+
+}

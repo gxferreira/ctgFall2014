@@ -1,0 +1,115 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <header class="site-header">
+      <div class="container">
+          <img src="img/header.jpg" class="header-img" />
+      </div>
+  </header>
+  <div class="main-content">
+    <div class="container">
+      <h2>Physical Activities Cost</h2>
+      <div class="radar-header dashb-painel-2cols cf" id="info-input">
+        <div class="col">
+
+          <label class="label-food">Food 1:</label>
+          <select id="selectFood1" class="foodSelector">
+              <optgroup label="Cheeseburgers">
+                  <option value="21233">MC Donald's</option>
+                  <option value="21251">Burger King</option>
+              </optgroup>
+              <optgroup label="Tuna Sub">
+                  <option value="21214">SUBWAY Tuna Sub</option>
+              </optgroup>    
+          </select>
+
+          <label class="label-food">Food 2:</label>
+          <select id="selectFood2" class="foodSelector">
+              <optgroup label="Cheeseburgers">
+                  <option value="21233">MC Donald's</option>
+                  <option value="21251" selected = "true">Burger King</option>
+              </optgroup>
+              <optgroup label="Tuna Sub">
+                  <option value="21214">SUBWAY Tuna Sub</option>
+              </optgroup>
+          </select>
+      </div> 
+
+    <!--  <label class=" label-food">Food:</label>
+        <select id="selectFood" class="foodSelector">
+            <optgroup label="Cheeseburgers">
+                <option value="21233">MC Donald's</option>
+                <option value="21251">Burger King</option>
+            </optgroup>
+            <optgroup label="Tuna Sub">
+                <option value="21214">SUBWAY Tuna Sub</option>
+            </optgroup>    
+        </select>
+      </div> -->
+
+        <div id="weight-input col">
+          <input type="text" id="weight" placeholder="Your weight">
+
+          <select id="weight-metric">
+            <option value="1"> Kg </option>
+            <option value="2.2"> lb </option>
+          </select>
+
+        </div>
+      </div>
+
+      <div class="dashb-painel-2cols cf exercises">
+      </div>
+    </div>
+  </div>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/bindWithDelay.js"></script>
+  <script src="js/exercises.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+
+  $("#info-input").bindWithDelay("keyup change", function(){
+
+    if(!$("#weight").val()){
+      $('.exercises').empty();
+    }
+
+    else{
+      var jxhr = [];
+      cleanFoodData();
+
+      $.each($(".foodSelector"), function(i, foodSelector){
+        jxhr.push(
+          $.getJSON("secure/requestFood.php?food_id="+$(foodSelector).val(), function( data ) {
+            pushFoodData(data);
+          })
+        );
+      });
+
+      $.when.apply($, jxhr).done(function() {
+        exercises_function();
+      });
+    }
+
+    }, 300);
+  });  
+  </script>
+
+  </body>
+
