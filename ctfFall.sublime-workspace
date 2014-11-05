@@ -1,0 +1,484 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"border",
+				"border"
+			],
+			[
+				"rada",
+				"radarChartData"
+			],
+			[
+				"ra",
+				"radarChartData"
+			],
+			[
+				"bubbl",
+				"bubbleChartData"
+			],
+			[
+				"to",
+				"toFixed"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"food",
+				"foodData"
+			],
+			[
+				"mari",
+				"margin"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"co",
+				"container"
+			],
+			[
+				"marin",
+				"margin-right"
+			],
+			[
+				"mar",
+				"margin-left"
+			],
+			[
+				"mai",
+				"max-width"
+			],
+			[
+				"con",
+				"containers"
+			],
+			[
+				"foo",
+				"foodSelector"
+			],
+			[
+				"get",
+				"getJSON"
+			],
+			[
+				"data",
+				"dataChart"
+			],
+			[
+				"axi",
+				"axis"
+			],
+			[
+				"ca",
+				"carbo"
+			],
+			[
+				"prot",
+				"protein"
+			],
+			[
+				"ni",
+				"nutrients"
+			],
+			[
+				"chart",
+				"chartData"
+			],
+			[
+				"class",
+				"className"
+			],
+			[
+				"axis",
+				"axisText"
+			],
+			[
+				"json",
+				"jsonfile"
+			],
+			[
+				"prin",
+				"print_r"
+			],
+			[
+				"sele",
+				"selectAgeGroup"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"di",
+				"div"
+			],
+			[
+				"text-",
+				"text-decoration"
+			],
+			[
+				"fact",
+				"fact7"
+			],
+			[
+				"auth",
+				"authUrl"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 4563,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "js/script.js",
+			"settings":
+			{
+				"buffer_size": 4729,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "js/d3/RadarChart.js",
+			"settings":
+			{
+				"buffer_size": 7252,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "css/main.css",
+			"settings":
+			{
+				"buffer_size": 7063,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/GUILHERME/php/htdocs/ctgFall2014/index.html",
+		"/C/Users/GUILHERME/php/htdocs/ctgFall2014/js/d3/RadarChart.js",
+		"/C/Users/GUILHERME/php/htdocs/ctgFall2014/css/main.css",
+		"/C/Users/GUILHERME/php/htdocs/ctgFall2014/js/script.js",
+		"/C/Users/GUILHERME/php/htdocs/ctgFall2014/js/d3/radar-chart.min.js",
+		"/C/Users/GUILHERME/php/htdocs/ctgFall2014/js/d3/radar.js",
+		"/C/Users/GUILHERME/php/htdocs/ctgFall2014/dvValues",
+		"/C/Users/GUILHERME/php/htdocs/ctgFall2014/secure/requestFood.php",
+		"/C/Users/GUILHERME/php/htdocs/ctgFall2014/secure/dvtable.json",
+		"/C/Users/GUILHERME/php/htdocs/ctgFall2014/secure/dris.json",
+		"/C/Users/GUILHERME/php/htdocs/ctgFall2014/css/d3/d3.v3.js",
+		"/C/Users/GUILHERME/php/htdocs/ctgFall2014/dris.json",
+		"/E/GitHub/ctgFall2014/dris_.csv",
+		"/E/GitHub/ctgFall2014/dris",
+		"/C/Users/GUILHERME/Desktop/Fall_2014/Research/ctgFall2014/index.html",
+		"/C/Users/GUILHERME/Documents/GitHub/accessibility/css/style.css",
+		"/C/Users/GUILHERME/Documents/GitHub/accessibility/index.html",
+		"/C/Users/Public/t3.bin",
+		"/C/Users/Public/t2.bin",
+		"/C/Users/Public/t1.bin",
+		"/C/Users/GUILHERME/Documents/GitHub/about-me/index.html",
+		"/C/Users/GUILHERME/Downloads/DEMO_F.XPT",
+		"/C/Users/GUILHERME/Documents/GitHub/about-me/idne.html",
+		"/C/Users/GUILHERME/php/php/google_api/Google/Service.php",
+		"/C/Users/GUILHERME/php/php/google_api/Google/Client.php",
+		"/C/Users/GUILHERME/php/php/google_api/Google/Service/Drive.php",
+		"/C/Users/GUILHERME/php/php/php.ini",
+		"/C/Users/GUILHERME/php/htdocs/google_client/test",
+		"/C/Users/GUILHERME/php/htdocs/google_client/test.php",
+		"/C/Users/GUILHERME/php/htdocs/google_client/callback.php"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"chartData",
+			"title",
+			"What % of owners use a specific service in a week",
+			"0",
+			"foodData",
+			"bac",
+			"p{",
+			"body",
+			"sugar",
+			"M",
+			"\\n",
+			"\"",
+			"''",
+			"\"",
+			"\\n",
+			"\\\\n",
+			"\\n",
+			"\\\\n",
+			" ",
+			",",
+			"Google_Service_Drive_DriveFile",
+			"drivefile",
+			"google_Service_drive_File",
+			"google_Drive_Fil",
+			"files",
+			"file",
+			"files",
+			"file",
+			"files",
+			"user",
+			"list",
+			"insert",
+			"drive_File",
+			"path"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"F",
+			",",
+			"",
+			",",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"settings":
+					{
+						"buffer_size": 4563,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2785,
+								2785
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 388.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "js/script.js",
+					"settings":
+					{
+						"buffer_size": 4729,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4449,
+								4449
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2279.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "js/d3/RadarChart.js",
+					"settings":
+					{
+						"buffer_size": 7252,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1020,
+								1020
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 76.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "css/main.css",
+					"settings":
+					{
+						"buffer_size": 7063,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1336,
+								1336
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 703.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

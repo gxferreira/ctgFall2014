@@ -23,34 +23,10 @@
     </header>
     <div class="main-content">
         <div class="container">
-            <h2>Nutrition Facts Overall</h2>
-            <div class="radar-header cf">
-                <label class="label-food">Food 1:</label>
-                <select id="selectFood1" class="foodSelector">
-                    <optgroup label="Cheeseburgers">
-                        <option value="21233">MC Donald's</option>
-                        <option value="21251">Burger King</option>
-                    </optgroup>
-                    <optgroup label="Tuna Sub">
-                        <option value="21214">SUBWAY Tuna Sub</option>
-                    </optgroup>    
-                </select>
-
-                <label class="label-food">Food 2:</label>
-                <select id="selectFood2" class="foodSelector">
-                    <optgroup label="Cheeseburgers">
-                        <option value="21233">MC Donald's</option>
-                        <option value="21251" selected = "true">Burger King</option>
-                    </optgroup>
-                    <optgroup label="Tuna Sub">
-                        <option value="21214">SUBWAY Tuna Sub</option>
-                    </optgroup>
-                </select>
-                <button id="checkFood" class="btt-check">Check</button>
-            </div>
+            <h2 class="chart-title">Nutrition Facts Overall</h2>
             <div class="dashb-painel-2cols cf">
                     <div class="col col-radar">
-                        <div class="radar-panel">
+                        <div class="radar-panel" id="radarPanel">
                             <div id="results" class="radar-container">
                                 Choose the foods and click <b>Check</b> to compare...
                             </div>
@@ -58,10 +34,43 @@
                     </div>
                     <div class="col col-info">
                         <p><b>Information</b></p>
-                        <div class="panel-food-info" id="panelFoodInfo">
+                        
+                        <label class="label-food">Food 1:</label>
+                        <select id="selectFood1" class="foodSelector">
+                            <optgroup label="Cheeseburgers">
+                                <option value="21233">MC Donald's</option>
+                                <option value="21251">Burger King</option>
+                            </optgroup>
+                            <optgroup label="Tuna Sub">
+                                <option value="21214">SUBWAY Tuna Sub</option>
+                            </optgroup>    
+                        </select>
+                        <div class="panel-food-info" id="panelFoodInfo1">
                             
-                        </div>    
+                        </div>
+                        
+
+                        <label class="label-food">Food 2:</label>
+                        <select id="selectFood2" class="foodSelector">
+                            <optgroup label="Cheeseburgers">
+                                <option value="21233">MC Donald's</option>
+                                <option value="21251" selected = "true">Burger King</option>
+                            </optgroup>
+                            <optgroup label="Tuna Sub">
+                                <option value="21214">SUBWAY Tuna Sub</option>
+                            </optgroup>
+                        </select>
+                                
+                        <div class="panel-food-info" id="panelFoodInfo2">
+                            
+                        </div>
+                        <button id="checkFood" class="btt-check">Check</button>
                     </div>
+            </div>
+            <h2 class="chart-title">Minerals and Vitamins</h2>
+            <div class="container">
+                <div id="bubbleChartContainer">
+                </div>
             </div>
         </div>
     </div>
@@ -76,11 +85,11 @@
     <!-- Add your site or application content here -->         
     <script src="js/jquery.min.js"></script>
     <script src="js/d3/d3.v3.js"></script>
-    <script src="js/d3/radar-chart.min.js"></script>
+    <script src="js/d3/RadarChart.js"></script>
+    <script src="js/d3/d3plus.js"></script>
     <script src="js/script.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-
             $("#checkFood").click(function(){
                 var jxhr = [];
                 cleanFoodData();

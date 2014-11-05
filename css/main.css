@@ -32,22 +32,16 @@ h1, h2, h3{
 
 h1 {
   margin-top: 0;
-  font-size: 3.157em;
+  font-size: 2.441em;
 }
 
-h2 {
-    margin-top: 0.5em;
-    font-size: 2.369em;
-}
+h2 {font-size: 1.953em; margin-top: 0.5em;}
 
-h3 {font-size: 1.777em;}
+h3 {font-size: 1.563em;}
 
-h4 {
-    margin-top: 1em;
-    font-size: 1.333em;
-}
+h4 {font-size: 1.25em;}
 
-small, .font_small {font-size: 0.75em;}
+small, .font_small {font-size: 0.8em;}
 
 
 /*** LAYOUT ***/
@@ -76,12 +70,11 @@ small, .font_small {font-size: 0.75em;}
 
 /** RADAR CHART **/
 .radar-panel{
-    background-color: #F9F9F9;
     max-width: 450px;
+    border: 1px solid #DDD;
 }
 
 .radar-header{
-    background-color: #092861;
     padding: 5px;
 }
 
@@ -89,10 +82,13 @@ small, .font_small {font-size: 0.75em;}
     padding-top: 10px; 
 }
 
-
+.chart-title{
+  font-weight: bold;
+  color: #092861;
+  text-transform: uppercase;
+}
 
 .label-food{
-    color: white;
     font-weight: bold;
 }
 
@@ -106,6 +102,9 @@ small, .font_small {font-size: 0.75em;}
     float: right;
 }
 
+.min-vit-title{
+    border-bottom: 1px solid #AAA;
+}
 
 /*
  * Remove text-shadow in selection highlight:
