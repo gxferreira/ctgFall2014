@@ -23,8 +23,36 @@
     </header>
     <div class="main-content">
         <div class="container">
-            <h2 class="chart-title">Nutrition Facts Overall</h2>
+            <div class="radar-chart-header cf">
+                <h2 class="chart-title">Nutrition Facts Overall</h2>
+                <div class="radar-menu-selection" style="display: none;">
+                    <label>Add a Food:</label>
+                    <input type="text" style="width: 60%;" />
+                    <button text="">Search</button>
+                </div>
+            </div>
             <div class="dashb-painel-2cols cf">
+                    <div class="col-info col-info-food1">
+                        <label class="label-food">Food 1:</label>
+                        <select id="selectFood1" class="foodSelector">
+                            <optgroup label="Hamburgers">
+                                <option value="21233">MC Donald's Cheeseburger</option>
+                                <option value="21251">Burger King Cheeseburger</option>
+                                <option value="21214">SUBWAY Tuna Sub</option>
+                                <option value="36014">French Fries</option>
+                                <option value="36621">Sweet and Sour Chicken</option>
+                                <option value="07090">Luncheon Sausage</option>
+                                <option value="07080">Turkey Ham</option>
+                                <option value="21107">Regular Hamburger Patty</option>
+                                <option value="36405">Rice and Black Beans</option>
+                            </optgroup>    
+                        </select>
+                        <div class="panel-food-info" id="panelFoodInfo1">
+                            <div class="div-serving-size" id="divServingSize1">
+                            </div>
+                        </div>
+                        <button id="checkFood1" class="btt-check">Update</button>
+                    </div>
                     <div class="col col-radar">
                         <div class="radar-panel" id="radarPanel">
                             <div id="results" class="radar-container">
@@ -32,39 +60,28 @@
                             </div>
                         </div>    
                     </div>
-                    <div class="col col-info">
-                        <p><b>Information</b></p>
-                        
-                        <label class="label-food">Food 1:</label>
-                        <select id="selectFood1" class="foodSelector">
-                            <optgroup label="Cheeseburgers">
-                                <option value="21233">MC Donald's</option>
-                                <option value="21251">Burger King</option>
-                            </optgroup>
-                            <optgroup label="Tuna Sub">
-                                <option value="21214">SUBWAY Tuna Sub</option>
-                            </optgroup>    
-                        </select>
-                        <div class="panel-food-info" id="panelFoodInfo1">
-                            
-                        </div>
-                        
-
+                    <div class="col-info col-info-food2">
                         <label class="label-food">Food 2:</label>
                         <select id="selectFood2" class="foodSelector">
-                            <optgroup label="Cheeseburgers">
-                                <option value="21233">MC Donald's</option>
-                                <option value="21251" selected = "true">Burger King</option>
-                            </optgroup>
-                            <optgroup label="Tuna Sub">
-                                <option value="21214">SUBWAY Tuna Sub</option>
+                            <optgroup label="Hamburgers">
+                                <option value="21233">MC Donald's Cheeseburger</option>
+                                <option value="21251">Burger King Cheeseburger</option>
+                                <option value="21214" selected="true">SUBWAY Tuna Sub</option>
+                                <option value="36014">French Fries</option>
+                                <option value="36621">Sweet and Sour Chicken</option>
+                                <option value="07090">Luncheon Sausage</option>
+                                <option value="07080">Turkey Ham</option>
+                                <option value="21107">Regular Hamburger Patty</option>
+                                <option value="36405">Rice and Black Beans</option>
                             </optgroup>
                         </select>
-                                
+                        
                         <div class="panel-food-info" id="panelFoodInfo2">
-                            
+                            <div class="div-serving-size" id="divServingSize2">
+                            </div>
                         </div>
-                        <button id="checkFood" class="btt-check">Check</button>
+
+                        <button id="checkFood2" class="btt-check">Update</button>
                     </div>
             </div>
             <h2 class="chart-title">Minerals and Vitamins</h2>
@@ -90,7 +107,7 @@
     <script src="js/script.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-            $("#checkFood").click(function(){
+            $(".btt-check").click(function(){
                 var jxhr = [];
                 cleanFoodData();
                 
@@ -104,8 +121,24 @@
 
                 $.when.apply($, jxhr).done(function() {
                     createChart("results");
-                    $("#panelFoodInfo .food-info").show();
+                    $(".food-info").show();
                 });
+            });
+
+            var jxhr = [];
+            cleanFoodData();
+            
+            $.each($(".foodSelector"), function(i, foodSelector){
+                jxhr.push(
+                    $.getJSON("secure/requestFood.php?food_id="+$(foodSelector).val(), function( data ) {
+                        pushFoodData(data);
+                    })
+                );
+            });
+
+            $.when.apply($, jxhr).done(function() {
+                createChart("results");
+                $(".food-info").show();
             });
         });
     </script>

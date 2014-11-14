@@ -4,6 +4,50 @@
 		"selected_items":
 		[
 			[
+				"max",
+				"maxValue"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"marin",
+				"margin-top"
+			],
+			[
+				"text",
+				"text-transform"
+			],
+			[
+				"trans",
+				"transform"
+			],
+			[
+				"svg",
+				"svgCont"
+			],
+			[
+				"food",
+				"food"
+			],
+			[
+				"bac",
+				"background"
+			],
+			[
+				"col",
+				"col-info-food1"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"txt",
+				"text-align"
+			],
+			[
 				"border",
 				"border"
 			],
@@ -24,20 +68,8 @@
 				"toFixed"
 			],
 			[
-				"margin",
-				"margin-top"
-			],
-			[
-				"food",
-				"foodData"
-			],
-			[
 				"mari",
 				"margin"
-			],
-			[
-				"bac",
-				"background-color"
 			],
 			[
 				"font",
@@ -50,14 +82,6 @@
 			[
 				"co",
 				"container"
-			],
-			[
-				"marin",
-				"margin-right"
-			],
-			[
-				"mar",
-				"margin-left"
 			],
 			[
 				"mai",
@@ -120,10 +144,6 @@
 				"selectAgeGroup"
 			],
 			[
-				"text",
-				"text-decoration"
-			],
-			[
 				"back",
 				"background-color"
 			],
@@ -148,18 +168,18 @@
 	"buffers":
 	[
 		{
-			"file": "index.html",
+			"file": "js/script.js",
 			"settings":
 			{
-				"buffer_size": 4563,
+				"buffer_size": 5500,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "js/script.js",
+			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 4729,
+				"buffer_size": 6595,
 				"line_ending": "Windows"
 			}
 		},
@@ -175,7 +195,7 @@
 			"file": "css/main.css",
 			"settings":
 			{
-				"buffer_size": 7063,
+				"buffer_size": 7967,
 				"line_ending": "Windows"
 			}
 		}
@@ -251,6 +271,11 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"radar-chart-header",
+			"food-info",
+			"                        \n",
+			"panel",
+			"panel-food",
 			"chartData",
 			"title",
 			"What % of owners use a specific service in a week",
@@ -307,23 +332,50 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "index.html",
+					"file": "js/script.js",
 					"settings":
 					{
-						"buffer_size": 4563,
+						"buffer_size": 5500,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2785,
-								2785
+								1775,
+								1775
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "index.html",
+					"settings":
+					{
+						"buffer_size": 6595,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6551,
+								6072
 							]
 						],
 						"settings":
@@ -333,34 +385,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 388.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "js/script.js",
-					"settings":
-					{
-						"buffer_size": 4729,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4449,
-								4449
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2279.0,
+						"translation.y": 1372.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -387,7 +412,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 76.0,
+						"translation.y": 1374.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -397,15 +422,15 @@
 					"file": "css/main.css",
 					"settings":
 					{
-						"buffer_size": 7063,
+						"buffer_size": 7967,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1336,
-								1336
+								2617,
+								2617
 							]
 						],
 						"settings":
@@ -415,7 +440,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 703.0,
+						"translation.y": 2106.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

@@ -30,7 +30,7 @@ var dvValues = {
 	"66":400,
 	"59":6,
 	"24":1000,
-	"23": 400,
+	"23":400,
 	"27":15
 }
 
@@ -38,6 +38,8 @@ var foodData = [];
 
 var radarChartData;
 var bubbleChartData;
+var servingSizeScale;
+var maxValue = 0;
 
 function createChart(idContainer){
 	radarChartData = [];
@@ -46,6 +48,10 @@ function createChart(idContainer){
 	LegendOptions = ["Food 1", "Food 2"];
 
 	var colorscale = d3.scale.category10();
+
+	servingSizeScale= d3.scale.linear()
+	.domain([0, d3.max([foodData[0].report.food.nutrients[0].measures[0].eqv, foodData[1].report.food.nutrients[0].measures[0].eqv])])
+	.range([15,50]);
 
 	for(var i = 0; i<foodData.length;i++){
 		foodDataToCharts(foodData[i].report.food, i+1);
@@ -73,7 +79,7 @@ function createChart(idContainer){
     var mycfg = {
     	w: w,
     	h: h,
-    	maxValue: 0.8,
+    	maxValue: (parseFloat(maxValue)+ 0.2),
     	levels: 5,
     	ExtraWidthX: 180
     };
@@ -152,6 +158,7 @@ function foodDataToCharts(dataFood, k){
 			case 26:
 			case 89:
 				radarAxisData.push({axis: nutrients[i].name, value: ((nutrients[i].measures[0].value/dvValues[""+nutrients[i].id])).toFixed(2)});
+				maxValue = d3.max([((nutrients[i].measures[0].value/dvValues[""+nutrients[i].id])).toFixed(2), maxValue]);
 				break;
 			default:
 				if(dvValues[""+nutrients[i].id] != undefined){
@@ -177,13 +184,28 @@ function pushFoodData(food){
 function cleanFoodData(){
 	foodData = new Array();
 	$("#results").empty();
-	$("#panelFoodInfo").empty();
+	$(".div-serving-size").empty();
+	$(".food-info").remove();
 }
 
-function loadFoodInfo(food, n){
+function loadFoodInfo(food, n, scale){
 	$("<div/>", {
 		"class": "food-info",
-		html: "<label class=\"lbl-infofood\">Name:</label>"+food.name+
-			  "<br /><label class=\"lbl-infofood\">Serving size:</label> "+food.nutrients[0].measures[0].qty+" "+food.nutrients[0].measures[0].label+" ("+food.nutrients[0].measures[0].eqv+"g)"
-	}).hide().appendTo("#panelFoodInfo"+n);
+		html: //"<label class=\"lbl-infofood\">Name:</label>"+food.name+
+			  "<label class=\"lbl-infofood\">Serving size:</label> "+food.nutrients[0].measures[0].qty+" "+food.nutrients[0].measures[0].label
+	}).hide().insertBefore("#divServingSize"+n);
+	
+	var svgCont = d3.select("#divServingSize"+n).append("svg").attr("width",120).attr("height",120)
+	.append("g").attr("transform","translate(60,60)");
+	
+	svgCont.append("circle")
+	.attr("r", servingSizeScale(food.nutrients[0].measures[0].eqv))
+	.attr("fill","green");
+
+	svgCont.append("text")
+	.attr("dx", -15)
+	.attr("fill", "white")
+	.attr("class", "svg-text-serving")
+    .attr("dy", ".35em")
+    .text(food.nutrients[0].measures[0].eqv+"g");
 }

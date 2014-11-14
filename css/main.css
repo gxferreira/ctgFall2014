@@ -63,13 +63,30 @@ small, .font_small {font-size: 0.8em;}
 
 
 /** COLUMNS LAYOUT **/
-.dashb-painel-2cols .col{
-    width: 50%;
-    float: left;
+.col-radar{
+  width: 50%;
+  float: left;
+}
+
+.col-info{
+  width: 24%;
+  float: left;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.col-info-food1{
+  background-color: #EEEFFE;
+}
+
+.col-info-food2{
+  background-color: #FFF7E4;
 }
 
 /** RADAR CHART **/
 .radar-panel{
+    margin:  0 auto;
     max-width: 450px;
     border: 1px solid #DDD;
 }
@@ -84,26 +101,83 @@ small, .font_small {font-size: 0.8em;}
 
 .chart-title{
   font-weight: bold;
-  color: #092861;
   text-transform: uppercase;
+  color: #092861;
+}
+
+.radar-chart-header .chart-title{
+  float: left;
+}
+
+.radar-chart-header label{
+  font-weight: bold;
+  margin-right: 15px;
 }
 
 .label-food{
     font-weight: bold;
+    display: block;
+}
+
+.radar-menu-selection{
+  float: right;
+  width: 45%;
+  margin-top: 15px;
+  /* background-color: #F8F8F8; */
+  padding: 10px;
+  border: 1px solid #CCC;
+}
+
+.col-info-title{
+  margin-top: 0;
 }
 
 .lbl-infofood{
     font-weight: bold;
     margin-right: 0.5em;
-    color: blue;
+}
+
+.col-info-food1 .lbl-infofood{
+  color: darkblue;
+}
+
+.col-info-food2 .lbl-infofood{
+  color: darkorange;
 }
  
 .btt-check{
-    float: right;
 }
 
 .min-vit-title{
     border-bottom: 1px solid #AAA;
+}
+
+.panel-food-info{
+  margin-bottom: 2em;
+}
+
+.food-info{
+  margin-top: 1em;
+}
+
+.svg-text-serving{
+  font-weight: bold;
+}
+
+.div-serving-size{
+  max-width: 120px;
+  margin: 0 auto;
+}
+
+/** RADAR STYLE **/
+.axis text{
+  font-weight: bold;
+}
+
+
+.panelAddFood{
+  font-size: 0.9em;
+  padding: 3px;
 }
 
 /*
