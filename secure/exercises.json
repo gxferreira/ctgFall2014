@@ -2,26 +2,31 @@
   "exercises":{
 
     "Walking":{
-
+      "color" : "#0f93ff",
+      "group" : 1,
       "image":"img/walking.png",
       "met":"3.5"
 
     },
 
     "Running":{
-
+      "color" : "#7ade16",
+      "group" : 2,
       "image":"img/running.png",
       "met":"9"
 
     },
 
     "Cycling":{
-
+      "group" : 3,
+      "color" : "#ffdd00",
       "image":"img/cycling.png",
       "met":"8"
     },
 
     "Lifting":{
+      "color" : "#ff870f",
+      "group" : 4,
       "image":"img/lifting.png",
       "met":"6"
     }

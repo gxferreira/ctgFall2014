@@ -13,6 +13,7 @@
   <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
+      <link rel="stylesheet" href="css/foundation.css" />
 </head>
 <body>
   <header class="site-header">
@@ -26,7 +27,7 @@
       <div class="radar-header dashb-painel-2cols cf" id="info-input">
         <div class="col">
 
-          <label class="label-food">Food 1:</label>
+          <label class="label-food" style="color:#b22200">Food 1:</label>
           <select id="selectFood1" class="foodSelector">
               <optgroup label="Cheeseburgers">
                   <option value="21233">MC Donald's</option>
@@ -37,7 +38,7 @@
               </optgroup>    
           </select>
 
-          <label class="label-food">Food 2:</label>
+          <label class="label-food" style="color:#EACE3F">Food 2:</label>
           <select id="selectFood2" class="foodSelector">
               <optgroup label="Cheeseburgers">
                   <option value="21233">MC Donald's</option>
@@ -72,12 +73,17 @@
         </div>
       </div>
 
-      <div class="dashb-painel-2cols cf exercises">
+      <div class="row exercises">
+    
       </div>
     </div>
   </div>
 
+  <div id="viz"><div>
+
   <script src="js/jquery.min.js"></script>
+    <script src="js/d3/d3.v3.js"></script>
+  <script src="js/d3/d3plus.js"></script>
   <script src="js/script.js"></script>
   <script src="js/bindWithDelay.js"></script>
   <script src="js/exercises.js"></script>
@@ -110,6 +116,5 @@
     }, 300);
   });  
   </script>
-
   </body>
 

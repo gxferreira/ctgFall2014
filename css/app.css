@@ -1,0 +1,109 @@
+/*Palette
+#FF4E50
+#FC913A
+#F9D423
+#EDE574
+#E1F5C4
+*/
+
+html, body{
+	height: 100%;
+}
+
+[data-magellan-expedition]{
+	padding:0;
+}
+
+[data-magellan-expedition], [data-magellan-expedition-clone]{
+	padding: 0;
+}
+
+/*.top-bar{
+	background-color: #222;
+}*/
+
+.top-bar img{
+	max-height: 45px;
+}
+
+/*.top-bar-section li a:not(.button) {
+    background:#2373B0 !important; 
+}
+.top-bar-section li a:not(.button):hover {
+    background:#022859 !important;
+}*/
+
+.page{
+	height:100%;
+    padding-top:5%;
+	padding-bottom: 5%;
+	padding-left: auto;
+	padding-right: auto;
+
+}
+
+#introduction-page{
+	/*background-color: #2373B0;*/
+	background-color: rgba(255,78,80, 1);
+	/*background-color: rgba(159,222,78, 1);*/
+	color: white;
+}
+
+#nutrition-page{
+	background-color: #FC913A;
+	/*background-color: rgba(31,136,124, 0.5);*/
+}
+
+#minerals-page{
+	background-color: #EDE574;
+}
+
+#exercises-page{
+	background-color: #E1F5C4;
+	/*background-color: rgba(88,191,74, 0.5);*/
+}
+
+.introduction-body{
+	text-align: center;
+}
+
+.introduction-body h1{
+	font-size: 4em;
+	padding: 9%;
+	color: white;
+}
+
+
+.nav{
+	padding:2%;
+	background-color: rgba(249,212,35,1);
+	/*width: 100%;*/
+}
+
+.nav label{
+	color: white;
+}
+
+button, .button{
+	background-color: #FC913A;
+}
+/*.input-bar{
+	padding:10px;
+	height:80px;
+	position: absolute;
+	bottom: 0px;
+}
+
+.input-bar-sticky{
+	padding:2px;
+	height:70px;
+    position: fixed;  
+    width: 100%;  
+    left: 0;  
+    top: 45px;
+    z-index: 100;  
+    border-top: 0;
+}*/
+
+
+
