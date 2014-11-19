@@ -42,10 +42,8 @@ createBarChart();
 
 function calculateExercises(met, key, calorie,i){
   var minutes = 0;
-  //for( var i in calories){
-    minutes = Math.round((calorie * 60) / (weight * met));
-    $('<p style="color:'+color[i]+'">'+minutes+' min</p>').insertAfter('#'+key);
-  //}
+  minutes = Math.round((calorie * 60) / (weight * met));
+  $('<p style="color:'+color[i]+'">'+minutes+' min</p>').insertAfter('#'+key);
   return minutes;
 }
 
@@ -66,13 +64,11 @@ function getCalories(){
 function createBarData(i, exercise, minutes, img, group, color){
   i++;
   barChartData.push({"exercise":exercise, "name":"food"+i, "minutes":minutes, "image":img, "group": group, "color":color});
-  console.log(barChartData);
-
 }
 
 function createBarChart(){
    var visualization = d3plus.viz()
-    .container("#viz")
+    .container("#barChart")
     .data(barChartData)
     .type("bar")
     .id("name")

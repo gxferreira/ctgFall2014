@@ -18,20 +18,17 @@ html, body{
 	padding: 0;
 }
 
-/*.top-bar{
-	background-color: #222;
-}*/
+.top-bar{
+	background-color: #022859;
+}
 
 .top-bar img{
 	max-height: 45px;
 }
 
-/*.top-bar-section li a:not(.button) {
-    background:#2373B0 !important; 
+.top-bar-section li:not(.has-form) a:not(.button){
+	background-color: #022859;
 }
-.top-bar-section li a:not(.button):hover {
-    background:#022859 !important;
-}*/
 
 .page{
 	height:100%;
@@ -43,15 +40,12 @@ html, body{
 }
 
 #introduction-page{
-	/*background-color: #2373B0;*/
 	background-color: rgba(255,78,80, 1);
-	/*background-color: rgba(159,222,78, 1);*/
 	color: white;
 }
 
 #nutrition-page{
 	background-color: #FC913A;
-	/*background-color: rgba(31,136,124, 0.5);*/
 }
 
 #minerals-page{
@@ -59,8 +53,7 @@ html, body{
 }
 
 #exercises-page{
-	background-color: #E1F5C4;
-	/*background-color: rgba(88,191,74, 0.5);*/
+	background-color: #c1e787;
 }
 
 .introduction-body{
@@ -104,6 +97,4 @@ button, .button{
     z-index: 100;  
     border-top: 0;
 }*/
-
-
 
