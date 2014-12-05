@@ -81,5 +81,6 @@ function createBarChart(){
     })
     .tooltip("exercise")
     .legend(false)
+    .height(450)
     .draw()
 }

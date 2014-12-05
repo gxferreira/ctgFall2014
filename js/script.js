@@ -39,18 +39,22 @@ var foodData = [];
 var radarChartData;
 var bubbleChartData;
 var servingSizeScale;
-var maxValue = 0;
+var maxValue;
+var selMeasures = [];
 
 function createChart(idContainer){
 	radarChartData = [];
 	bubbleChartData = [];
+	maxValue = 0;
+	
+	selMeasures = [$("#selectServSize1").val(),$("#selectServSize2").val()];
 
 	LegendOptions = ["Food 1", "Food 2"];
 
 	var colorscale = d3.scale.category10();
 
 	servingSizeScale= d3.scale.linear()
-	.domain([0, d3.max([foodData[0].report.food.nutrients[0].measures[0].eqv, foodData[1].report.food.nutrients[0].measures[0].eqv])])
+	.domain([0, d3.max([foodData[0].report.food.nutrients[0].measures[selMeasures[0]].eqv, foodData[1].report.food.nutrients[0].measures[selMeasures[1]].eqv])])
 	.range([15,50]);
 
 	for(var i = 0; i<foodData.length;i++){
@@ -60,7 +64,6 @@ function createChart(idContainer){
 
 	var container = $("#"+idContainer),
 	width = container.width();
-	height = 350;
 
 	/*var chart = RadarChart.chart();
     var cfg = chart.config(); // retrieve default config
@@ -74,14 +77,16 @@ function createChart(idContainer){
       .attr('viewBox','0 0 '+Math.min(width,height)+' '+Math.min(width,height))
       .attr('preserveAspectRatio','xMinYMin');
     svg.append('g').classed('single', 1).datum(dataChart).call(chart);*/
-    var w = 300, h= 250;
+    var w = 320, h= 250;
 
     var mycfg = {
     	w: w,
     	h: h,
+    	factorLegend: 0.7,
+    	TranslateX: 50,
     	maxValue: (parseFloat(maxValue)+ 0.2),
     	levels: 5,
-    	ExtraWidthX: 180
+    	radians: 2 * Math.PI
     };
 
     RadarChart.draw("#"+idContainer, radarChartData, mycfg);
@@ -141,6 +146,7 @@ function createChart(idContainer){
 	    .color("group")      // color by each group
 	    .order({value:"food", sort:"desc"})
 	    .tooltip("value")
+	    .height(450)
 	    .draw();                // finally, draw the visualization!
 }
 
@@ -157,14 +163,25 @@ function foodDataToCharts(dataFood, k){
 			case 20:
 			case 26:
 			case 89:
-				radarAxisData.push({axis: nutrients[i].name, value: ((nutrients[i].measures[0].value/dvValues[""+nutrients[i].id])).toFixed(2)});
-				maxValue = d3.max([((nutrients[i].measures[0].value/dvValues[""+nutrients[i].id])).toFixed(2), maxValue]);
+				var nutName = "";
+				if(nutrients[i].id==3){
+					nutName = "Carbohydrate";
+				}else{
+					nutName = nutrients[i].name;
+				}
+
+				if(nutrients[i].measures[selMeasures[k-1]]==undefined){
+					//console.log(k);
+					//console.log(nutrients[i]);
+				}
+				radarAxisData.push({axis: nutName, value: ((nutrients[i].measures[selMeasures[k-1]].value/dvValues[""+nutrients[i].id])).toFixed(2)});
+				maxValue = d3.max([((nutrients[i].measures[selMeasures[k-1]].value/dvValues[""+nutrients[i].id])).toFixed(2), maxValue]);
 				break;
 			default:
 				if(dvValues[""+nutrients[i].id] != undefined){
 					bubbleChartData.push(
 						{
-						 "value": (nutrients[i].measures[0].value/dvValues[""+nutrients[i].id]),
+						 "value": (nutrients[i].measures[selMeasures[k-1]].value/dvValues[""+nutrients[i].id]),
 						 "name": (nutrients[i].name.indexOf(",")==-1? nutrients[i].name : nutrients[i].name.substring(0, (nutrients[i].name.indexOf(",")))),
 						 "group": nutrients[i].group,
 						 "food": "Food "+k
@@ -177,35 +194,50 @@ function foodDataToCharts(dataFood, k){
 	radarChartData.push(radarAxisData);
 }
 
-function pushFoodData(food){
-	foodData.push(food);
+function pushFoodData(food, idx){
+	foodData.splice(idx, 0, food);
+	console.log(idx);
+
+	$("#selectServSize"+(idx+1)).empty();
+
+	food.report.food.nutrients[0].measures.forEach(function(element, i){
+		$("<option/>",{
+			"value":i,
+			"html":element.qty+" "+element.label
+		}).appendTo("#selectServSize"+(idx+1));
+	});
 }
 
 function cleanFoodData(){
-	foodData = new Array();
 	$("#results").empty();
 	$(".div-serving-size").empty();
 	$(".food-info").remove();
+}
+
+function updateServingSizes(){
+	
 }
 
 function loadFoodInfo(food, n, scale){
 	$("<div/>", {
 		"class": "food-info",
 		html: //"<label class=\"lbl-infofood\">Name:</label>"+food.name+
-			  "<label class=\"lbl-infofood\">Serving size:</label> "+food.nutrients[0].measures[0].qty+" "+food.nutrients[0].measures[0].label
+			  "<label class=\"lbl-infofood\">Serving size:</label> "+food.nutrients[0].measures[selMeasures[n-1]].qty+" "+food.nutrients[0].measures[selMeasures[n-1]].label
 	}).hide().insertBefore("#divServingSize"+n);
 	
 	var svgCont = d3.select("#divServingSize"+n).append("svg").attr("width",120).attr("height",120)
 	.append("g").attr("transform","translate(60,60)");
 	
 	svgCont.append("circle")
-	.attr("r", servingSizeScale(food.nutrients[0].measures[0].eqv))
+	.attr("r", servingSizeScale(food.nutrients[0].measures[selMeasures[n-1]].eqv))
 	.attr("fill","green");
+
+	
 
 	svgCont.append("text")
 	.attr("dx", -15)
 	.attr("fill", "white")
 	.attr("class", "svg-text-serving")
     .attr("dy", ".35em")
-    .text(food.nutrients[0].measures[0].eqv+"g");
+    .text(food.nutrients[0].measures[selMeasures[n-1]].eqv+"g");
 }

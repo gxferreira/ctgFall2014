@@ -80,6 +80,25 @@ html, body{
 button, .button{
 	background-color: #FC913A;
 }
+
+.radar-container{
+	max-width: 450px;
+	max-height: 350px;
+	background-color: white;
+	padding-top: 10px;
+	border-radius: 15px;
+}
+
+.lbl-radar-placeholder{
+	padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.lbl-food-form{
+	font-weight: bold;
+	font-size: 1em;
+}
+
 /*.input-bar{
 	padding:10px;
 	height:80px;

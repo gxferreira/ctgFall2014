@@ -5,12 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Chronic Diseases Dashboard</title>
 	<link rel="stylesheet" href="css/foundation.css" />
+	<link rel="stylesheet" href="css/jquery-ui.min.css" />
 	<link rel="stylesheet" href="css/app.css" />
 	<script src="js/vendor/modernizr.js"></script>
 </head>
 <body>
-
-
 	<header> 
 		<div data-magellan-expedition="fixed">
 			<nav class="top-bar" data-topbar role="navigation">
@@ -40,7 +39,8 @@
 		
 		<div class="introduction-body large-6 medium-6 columns">
 
-			<center><h1 data-magellan-destination="introduction-page">What you eat?</h1>
+			<center>
+				<h1 data-magellan-destination="introduction-page">What you eat?</h1>
 				<p>Enter the informations, then scroll down to check it</p>
 				<!-- <img src="img/arrow.png" /> -->
 			</center>
@@ -49,59 +49,87 @@
 
 
 		<div class="nav large-6 medium-6 columns">
+			<div style="position: absolute; z-index: 1; top: 10px; padding: 5px; color: white; left: 40%; background: none repeat scroll 0% 0% green; display: none;" id="ajaxLoader" class="ajax-loader">
+				<img width="20" height="20" src="img/loader.svg"> Loading... 
+			</div>
 		<!-- <div class="nav input-bar"> -->
-			<div class="large-6 medium-6 small-12 columns">
-				<label class="label-food">Food 1:
-					<select id="selectFood1" class="foodSelector">
-						<optgroup label="Hamburgers">
-							<option value="21233">MC Donald's Cheeseburger</option>
-							<option value="21251">Burger King Cheeseburger</option>
-							<option value="21214">SUBWAY Tuna Sub</option>
-							<option value="36014">French Fries</option>
-							<option value="36621">Sweet and Sour Chicken</option>
-							<option value="07090">Luncheon Sausage</option>
-							<option value="07080">Turkey Ham</option>
-							<option value="21107">Regular Hamburger Patty</option>
-							<option value="36405">Rice and Black Beans</option>
-						</optgroup>    
-					</select>
-				</label>
+			<div class="large-8 medium-8 small-12 columns">
+				<label class="lbl-food-form">Food 1:</label>
+				<!--<div class="row collapse">
+					<div class="small-10 columns">
+						<input type="text" id="srchFoodText1" class="srch-food-text" list="suggestionDatalist"/>
+						<datalist id="suggestionDatalist" class="srch-food-datalist">
+						</datalist>
+					</div>	
+					<div class="small-2 columns">
+						<a class="button postfix bttSrchFood" for="srchFoodText1"><img src="img/icon_search.png" class="inline" /></a>
+					</div>
+				</div>-->
+				<select id="selectFood1" class="foodSelector">
+					<optgroup label="Hamburgers">
+						<option value="21233">MC Donald's Cheeseburger</option>
+						<option value="21251">Burger King Cheeseburger</option>
+						<option value="21214">SUBWAY Tuna Sub</option>
+						<option value="36014">French Fries</option>
+						<option value="36621">Sweet and Sour Chicken</option>
+						<option value="07090">Luncheon Sausage</option>
+						<option value="07080">Turkey Ham</option>
+						<option value="21107">Regular Hamburger Patty</option>
+						<option value="36405">Rice and Black Beans</option>
+					</optgroup>    
+				</select>
 			</div>
-			<div class="large-6 medium-6 small-12 columns">
-				<label class="label-food">Food 2:
-					<select id="selectFood2" class="foodSelector">
-						<optgroup label="Hamburgers">
-							<option value="21233">MC Donald's Cheeseburger</option>
-							<option value="21251">Burger King Cheeseburger</option>
-							<option value="21214" selected="true">SUBWAY Tuna Sub</option>
-							<option value="36014">French Fries</option>
-							<option value="36621">Sweet and Sour Chicken</option>
-							<option value="07090">Luncheon Sausage</option>
-							<option value="07080">Turkey Ham</option>
-							<option value="21107">Regular Hamburger Patty</option>
-							<option value="36405">Rice and Black Beans</option>
-						</optgroup>
-					</select>
-				</label>
+			<div class="large-4 medium-4 small-12 columns">
+				<label class="lbl-food-form">Serving Size:</label>
+				<select id="selectServSize1" class="serv-size-selector">
+				</select>
 			</div>
-
+			<div class="large-8 medium-8 small-12 columns">
+				<label class="lbl-food-form">Food 2:</label>
+				<!--<div class="row collapse">
+					<div class="small-10 columns">
+						<input type="text" id="srchFoodText1" class="srch-food-text" list="suggestionDatalist"/>
+						<datalist id="suggestionDatalist" class="srch-food-datalist">
+						</datalist>
+					</div>
+					<div class="small-2 columns">
+						<a class="button postfix bttSrchFood" for="srchFoodText1"><img src="img/icon_search.png" class="inline" /></a>
+					</div>
+				</div>-->
+				<select id="selectFood2" class="foodSelector">
+					<optgroup label="Hamburgers">
+						<option value="21233">MC Donald's Cheeseburger</option>
+						<option value="21251">Burger King Cheeseburger</option>
+						<option value="21214" selected="true">SUBWAY Tuna Sub</option>
+						<option value="36014">French Fries</option>
+						<option value="36621">Sweet and Sour Chicken</option>
+						<option value="07090">Luncheon Sausage</option>
+						<option value="07080">Turkey Ham</option>
+						<option value="21107">Regular Hamburger Patty</option>
+						<option value="36405">Rice and Black Beans</option>
+					</optgroup>
+				</select>
+			</div>
+			<div class="large-4 medium-4 small-12 columns">
+				<label class="lbl-food-form">Serving Size:</label>
+				<select id="selectServSize2" class="serv-size-selector">
+				</select>
+			</div>
 			<div class="small-8-up medium-8  small-12 columns">
-				<label>Weight:
-					<input type="text" id="weight" placeholder="Your weight">
-				</label>
+				<label class="lbl-food-form">Weight:</label>
+				<input type="text" id="weight" placeholder="Your weight">
 			</div>
 
 			<div class="large-4 medium-4 small-12 columns">
-				<label>Metric:
-					<select id="weight-metric">
-						<option value="2.2">lb</option>
-						<option value="1">Kg</option>
-					</select>
-				</label>
+				<label class="lbl-food-form">Metric:</label>
+				<select id="weight-metric">
+					<option value="2.2">lb</option>
+					<option value="1">Kg</option>
+				</select>
 			</div>
 
 			<div class="large-12 medium-12 small-12 columns">
-			<center><button class="btt-check">Update</button></center></div>
+			<center><button class="btt-check">Compare</button></center></div>
 		</div>
 
 	</div>
@@ -110,21 +138,20 @@
 	<span data-magellan-destination="nutrition-page"></span>
 	<div class="page" id="nutrition-page">
 		<div class="row">
-
 			<h2>Nutrition Facts</h2>
 			<div class="large-3 medium-6 small-6 columns" id="panelFoodInfo1">
-				<div id="divServingSize1"></div>
+				<div id="divServingSize1" class="div-serving-size"></div>
 			</div>
 			<div class="large-3 medium-6 small-6 columns" id="panelFoodInfo2">
-				<div id="divServingSize2"></div>
+				<div id="divServingSize2" class="div-serving-size"></div>
 			</div>
-			<div class="large-6 medium-12 medium-12 columns" id="radarPanel">
-				<div id="results" class="radar-container">
-					Choose the foods and click <b>Check</b> to compare...
+			<div class="large-6 columns" id="radarPanel">
+				<div id="radarPanel" class="radar-container">
+					<div id="results">
+						<label class="lbl-radar-placeholder">Choose the foods and click <b>Compare</b> to compare...<label>
+					</div>
 				</div>
 			</div>
-			
-			
 		</div>
 	</div>
 
@@ -132,10 +159,8 @@
 	<span data-magellan-destination="minerals-page"></span>
 	<div class="page" id="minerals-page">
 		<div class="row">
-
 			<h2>Minerals and Vitamins</h2>
 	        <div id="bubbleChartContainer"></div>
-
         </div>
 	</div>
 
@@ -155,8 +180,8 @@
 	</div>
 
 
-
 	<script src="js/vendor/jquery.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
 	<script src="js/d3/d3.v3.js"></script>
 	<script src="js/d3/RadarChart.js"></script>
 	<script src="js/d3/d3plus.js"></script>
@@ -168,21 +193,47 @@
 		$(document).foundation();
 	</script>
 	<script type="text/javascript">
+		$( document ).ajaxStart(function() {
+		  $( "#ajaxLoader" ).show();
+		});
+
+		$( document ).ajaxStop(function() {
+		  $( "#ajaxLoader" ).hide();
+		});
 		$(document).ready(function(){
+				/*$(".srch-food-text").autocomplete({
+					source: function( request, response ) {
+			        $.ajax({
+			          url: "secure/searchFood.php",
+			          dataType: "jsonp",
+			          data: {
+			            q: request.term
+			          },
+			          success: function( data ) {
+			            return data.list.item;
+			          }
+			        });
+			      },
+			      minLength: 4,
+			      select: function( event, ui ) {
+			        console.log(ui.item);
+			      }
+				}).autocomplete( "instance" )._renderItem = function( ul, item ) {
+			      return $( "<li>" )
+			        .append( "<a>" + item.name +"</a>" )
+			        .appendTo( ul );
+			    };*/
 
-			$(".btt-check").click(function(){
-				var jxhr = [];
-				cleanFoodData();
-
-				$.each($(".foodSelector"), function(i, foodSelector){
-					jxhr.push(
-						$.getJSON("secure/requestFood.php?food_id="+$(foodSelector).val(), function( data ) {
-							pushFoodData(data);
-						})
-						);
+				$(".foodSelector").on("change", function(){
+					var index = $( ".foodSelector" ).index( this );
+					$.getJSON("secure/requestFood.php?food_id="+$(this).val(), function( data ) {
+						pushFoodData(data, index);
+					});		
 				});
 
-				$.when.apply($, jxhr).done(function() {
+				$(".btt-check").on("click", function(event){
+					cleanFoodData();
+
 					createChart("results");
 					$(".food-info").show();
 
@@ -192,7 +243,19 @@
 				});
 
 			});
-		});  
+
+			/*$(".bttSrchFood").click(function(){
+				var inputSrch = $("#"+$(this).attr("for"));
+				$.getJSON("secure/searchFood.php?q="+inputSrch.val(), function( data ) {
+					var foodItems = data.list.item;
+					var datalistSug = $(inputSrch.attr("list"));
+
+					for(var i=0;i<foodItems.length;i++){
+						console.log(datalistSug);
+						$("<option/>", {"label":foodItems[i].name, "value":foodItems[i].ndbno}).appendTo("#"+inputSrch.attr("list"));
+					}
+				});
+			});*/
 	</script>
 	<script type="text/javascript">
 		// $(document).ready(function() {  
