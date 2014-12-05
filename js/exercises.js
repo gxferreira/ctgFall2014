@@ -80,6 +80,5 @@ function createBarChart(){
       "value": "image"
     })
     .tooltip("exercise")
-    .legend(false)
     .draw()
 }
