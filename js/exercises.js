@@ -80,7 +80,10 @@ function createBarChart(){
       "value": "image"
     })
     .tooltip("exercise")
+<<<<<<< HEAD
     .legend(false)
     .height(450)
+=======
+>>>>>>> 1afafb1e76d0e66010bf9162cee005dbf366950e
     .draw()
 }
