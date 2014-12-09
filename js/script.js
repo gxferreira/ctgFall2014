@@ -55,7 +55,7 @@ function createChart(idContainer){
 
 	servingSizeScale= d3.scale.linear()
 	.domain([0, d3.max([foodData[0].report.food.nutrients[0].measures[selMeasures[0]].eqv, foodData[1].report.food.nutrients[0].measures[selMeasures[1]].eqv])])
-	.range([15,50]);
+	.range([40,80]);
 
 	for(var i = 0; i<foodData.length;i++){
 		foodDataToCharts(foodData[i].report.food, i+1);
@@ -145,9 +145,10 @@ function createChart(idContainer){
 	    .size("value")         // key name to size bubbles
 	    .color("group")      // color by each group
 	    .order({value:"food", sort:"desc"})
-	    .tooltip("value")
+	    .tooltip({"html": function(d){ 
+	    	return "<a class=\"link-moreinfo\" target=\"_blank\" href=\"https://www.google.com/?gws_rd=ssl#q="+d+"\">More info</a>";}})
 	    .height(450)
-	    .draw();                // finally, draw the visualization!
+	    .draw();// finally, draw the visualization!
 }
 
 function foodDataToCharts(dataFood, k){
@@ -181,10 +182,10 @@ function foodDataToCharts(dataFood, k){
 				if(dvValues[""+nutrients[i].id] != undefined){
 					bubbleChartData.push(
 						{
-						 "value": (nutrients[i].measures[selMeasures[k-1]].value/dvValues[""+nutrients[i].id]),
+						 "value": (nutrients[i].measures[selMeasures[k-1]].value/dvValues[""+nutrients[i].id])*100,
 						 "name": (nutrients[i].name.indexOf(",")==-1? nutrients[i].name : nutrients[i].name.substring(0, (nutrients[i].name.indexOf(",")))),
 						 "group": nutrients[i].group,
-						 "food": "Food "+k
+						 "food": dataFood.name
 						}
 					);
 				}
@@ -195,8 +196,13 @@ function foodDataToCharts(dataFood, k){
 }
 
 function pushFoodData(food, idx){
-	foodData.splice(idx, 0, food);
-	console.log(idx);
+	var rmv = 0;
+	
+	if(foodData.length==2)
+		rmv= 1
+
+	foodData.splice(idx, rmv, food);
+
 
 	$("#selectServSize"+(idx+1)).empty();
 
@@ -221,23 +227,24 @@ function updateServingSizes(){
 function loadFoodInfo(food, n, scale){
 	$("<div/>", {
 		"class": "food-info",
-		html: //"<label class=\"lbl-infofood\">Name:</label>"+food.name+
+		html: "<label class=\"foodTitle\">Food "+n+"</label>"+
+			  "<label class=\"lbl-infofood\">Name:</label>"+food.name+
 			  "<label class=\"lbl-infofood\">Serving size:</label> "+food.nutrients[0].measures[selMeasures[n-1]].qty+" "+food.nutrients[0].measures[selMeasures[n-1]].label
 	}).hide().insertBefore("#divServingSize"+n);
 	
-	var svgCont = d3.select("#divServingSize"+n).append("svg").attr("width",120).attr("height",120)
-	.append("g").attr("transform","translate(60,60)");
+	var svgCont = d3.select("#divServingSize"+n).append("svg").attr("width",160).attr("height",160)
+	.append("g").attr("transform","translate(80,80)");
 	
 	svgCont.append("circle")
 	.attr("r", servingSizeScale(food.nutrients[0].measures[selMeasures[n-1]].eqv))
 	.attr("fill","green");
 
-	
+	var valOz = (food.nutrients[0].measures[selMeasures[n-1]].eqv*0.035274).toFixed(2);
 
 	svgCont.append("text")
-	.attr("dx", -15)
+	.attr("dx", -25)
 	.attr("fill", "white")
 	.attr("class", "svg-text-serving")
     .attr("dy", ".35em")
-    .text(food.nutrients[0].measures[selMeasures[n-1]].eqv+"g");
+    .text(valOz+" oz");
 }

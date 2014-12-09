@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"data",
+				"dataFood"
+			],
+			[
+				"foo",
+				"foodData"
+			],
+			[
 				"max",
 				"maxValue"
 			],
@@ -92,16 +100,8 @@
 				"containers"
 			],
 			[
-				"foo",
-				"foodSelector"
-			],
-			[
 				"get",
 				"getJSON"
-			],
-			[
-				"data",
-				"dataChart"
 			],
 			[
 				"axi",
@@ -168,34 +168,34 @@
 	"buffers":
 	[
 		{
+			"file": "new-index.html",
+			"settings":
+			{
+				"buffer_size": 8852,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "js/exercises.js",
+			"settings":
+			{
+				"buffer_size": 2017,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "css/app.css",
+			"settings":
+			{
+				"buffer_size": 1736,
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "js/script.js",
 			"settings":
 			{
-				"buffer_size": 5500,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "index.html",
-			"settings":
-			{
-				"buffer_size": 6595,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "js/d3/RadarChart.js",
-			"settings":
-			{
-				"buffer_size": 7252,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "css/main.css",
-			"settings":
-			{
-				"buffer_size": 7967,
+				"buffer_size": 6580,
 				"line_ending": "Windows"
 			}
 		}
@@ -224,9 +224,10 @@
 	},
 	"file_history":
 	[
-		"/C/Users/GUILHERME/php/htdocs/ctgFall2014/index.html",
-		"/C/Users/GUILHERME/php/htdocs/ctgFall2014/js/d3/RadarChart.js",
+		"/C/Users/GUILHERME/php/htdocs/ctgFall2014/js/jquery.min.js",
 		"/C/Users/GUILHERME/php/htdocs/ctgFall2014/css/main.css",
+		"/C/Users/GUILHERME/php/htdocs/ctgFall2014/js/d3/RadarChart.js",
+		"/C/Users/GUILHERME/php/htdocs/ctgFall2014/index.html",
 		"/C/Users/GUILHERME/php/htdocs/ctgFall2014/js/script.js",
 		"/C/Users/GUILHERME/php/htdocs/ctgFall2014/js/d3/radar-chart.min.js",
 		"/C/Users/GUILHERME/php/htdocs/ctgFall2014/js/d3/radar.js",
@@ -271,6 +272,11 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"Food",
+			"food",
+			"slice",
+			"console",
+			"<<",
 			"radar-chart-header",
 			"food-info",
 			"                        \n",
@@ -332,28 +338,28 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "js/script.js",
+					"file": "new-index.html",
 					"settings":
 					{
-						"buffer_size": 5500,
+						"buffer_size": 8852,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1775,
-								1775
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
@@ -364,46 +370,73 @@
 				},
 				{
 					"buffer": 1,
-					"file": "index.html",
+					"file": "js/exercises.js",
 					"settings":
 					{
-						"buffer_size": 6595,
+						"buffer_size": 2017,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6551,
-								6072
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1372.0,
+						"translation.y": 788.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "js/d3/RadarChart.js",
+					"file": "css/app.css",
 					"settings":
 					{
-						"buffer_size": 7252,
+						"buffer_size": 1736,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1020,
-								1020
+								1672,
+								1672
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1416.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "js/script.js",
+					"settings":
+					{
+						"buffer_size": 6580,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5785,
+								5785
 							]
 						],
 						"settings":
@@ -412,35 +445,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1374.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "css/main.css",
-					"settings":
-					{
-						"buffer_size": 7967,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2617,
-								2617
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2106.0,
+						"translation.y": 3082.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
