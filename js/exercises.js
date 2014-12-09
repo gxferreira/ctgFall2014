@@ -15,7 +15,7 @@ function exercises_function(){
 
   $.getJSON( "secure/exercises.json", function(data) {
 
-    $(div).append('<h3>Food1: '+calories[0]+' calories - Food2: '+calories[1]+' calories</h3>');
+    $(div).append('<label class="calorieTitle">Food1: '+calories[0]+' calories - Food2: '+calories[1]+' calories</label>');
        
      $.each(data.exercises, function(key, value){
   //     $(div).append(

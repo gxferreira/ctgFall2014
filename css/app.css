@@ -106,10 +106,10 @@ button, .button{
 	font-size: 1em;
 }
 
-#barChart{
+/*#barChart{
 	height:100%;
 	min-height:100%;
-}
+}*/
 
 .link-moreinfo {
     background: none repeat scroll 0 0 limegreen;
@@ -129,4 +129,12 @@ button, .button{
     color: white;
     font-size: 24px;
     font-weight: bold;
+}
+
+.calorieTitle{
+    font-size: 20px;
+}
+
+.error{
+	color: red;
 }

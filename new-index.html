@@ -64,6 +64,7 @@
 				</div>-->
 				<select id="selectFood1" class="foodSelector">
 					<optgroup label="Hamburgers">
+						<option selected="true">Choose 1st food</option>
 						<option value="21233">MC Donald's Cheeseburger</option>
 						<option value="21251">Burger King Cheeseburger</option>
 						<option value="21214">SUBWAY Tuna Sub</option>
@@ -95,9 +96,10 @@
 				</div>-->
 				<select id="selectFood2" class="foodSelector">
 					<optgroup label="Hamburgers">
+						<option selected="true">Choose 2nd food</option>
 						<option value="21233">MC Donald's Cheeseburger</option>
 						<option value="21251">Burger King Cheeseburger</option>
-						<option value="21214" selected="true">SUBWAY Tuna Sub</option>
+						<option value="21214">SUBWAY Tuna Sub</option>
 						<option value="36014">French Fries</option>
 						<option value="36621">Sweet and Sour Chicken</option>
 						<option value="07090">Luncheon Sausage</option>
@@ -112,9 +114,9 @@
 				<select id="selectServSize2" class="serv-size-selector">
 				</select>
 			</div>
-			<div class="small-8-up medium-8  small-12 columns">
-				<label class="lbl-food-form">Weight:</label>
-				<input type="text" id="weight" placeholder="Your weight">
+			<div class="small-8-up medium-8  small-12 columns" id="weight-form">
+				<label class="lbl-food-form">Weight:</label> <div class="error"></div>
+				<input type="number" id="weight" placeholder="Your weight" required>
 			</div>
 
 			<div class="large-4 medium-4 small-12 columns">
@@ -126,7 +128,7 @@
 			</div>
 
 			<div class="large-12 medium-12 small-12 columns">
-			<a href="#nutrition-page"><button class="btt-check">Compare</button></a></div>
+			<button class="btt-check">Compare</button></div>
 		</div>
 
 	</div>
@@ -221,6 +223,18 @@
 			        .appendTo( ul );
 			    };*/
 
+			    $(document).ready(function () {
+					  //called when key is pressed in textbox
+					  $("#weight-form").keypress(function (e) {
+					     //if the letter is not digit then display error and don't type anything
+					     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+					        //display error message
+					        $(".error").html("Digits Only");
+					               return false;
+					    }
+					   });
+				});
+
 				$(".foodSelector").on("change", function(){
 					var index = $( ".foodSelector" ).index( this );
 					$.getJSON("secure/requestFood.php?food_id="+$(this).val(), function( data ) {
@@ -235,7 +249,11 @@
 					$(".food-info").show();
 
 					if($("#weight").val()){
-						exercises_function();
+						exercises_function();			
+						$("html, body").animate({ scrollTop: $(window).height()}, 600);
+					}
+					else{
+						$('.error').text('Weight must be filled out');
 					}
 				});
 
@@ -254,4 +272,5 @@
 				});
 			});*/
 	</script>
+
 </body>
