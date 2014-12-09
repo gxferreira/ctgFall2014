@@ -15,13 +15,14 @@ function exercises_function(){
 
   $.getJSON( "secure/exercises.json", function(data) {
 
-    $.each(data.exercises, function(key, value){
-
-      $(div).append(
-        '<div class="large-3 medium-3 columns">'+
-        '<h3 id="'+key+'">'+key+'</h3>'+
-        '<img src="'+value.image+'"></img>'+
-        '</div>');
+    $(div).append('<h3>Food1: '+calories[0]+' calories - Food2: '+calories[1]+' calories</h3>');
+       
+     $.each(data.exercises, function(key, value){
+  //     $(div).append(
+  //      '<div class="large-3 medium-3 columns">'+
+  //       '<h3 id="'+key+'">'+key+'</h3>'+
+  //       '<img src="'+value.image+'"></img>'+
+  //       '</div>');
       
       for(var i in calories){
         var minutes = calculateExercises(value.met, key, calories[i], i);
@@ -29,7 +30,7 @@ function exercises_function(){
       }
 
 
-  });
+   });
 
 createBarChart();
   
