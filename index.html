@@ -1,146 +1,276 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
-
-    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/d3/radar-chart.min.css">
-    <link rel="stylesheet" href="css/main.css">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Chronic Diseases Dashboard</title>
+	<link rel="stylesheet" href="css/foundation.css" />
+	<link rel="stylesheet" href="css/jquery-ui.min.css" />
+	<link rel="stylesheet" href="css/app.css" />
+	<script src="js/vendor/modernizr.js"></script>
 </head>
 <body>
-    <header class="site-header">
-        <div class="container">
-            <img src="img/header.jpg" class="header-img" />
+	<header> 
+		<div data-magellan-expedition="fixed">
+			<nav class="top-bar" data-topbar role="navigation">
+				<ul class="title-area"> 
+					<li class="name"> 
+						<img src="img/CTG_logo.png" />
+					</li> 
+					<li class="toggle-topbar menu-icon"><a href="#">Menu</a>
+					</li> 
+				</ul>
+
+				<section class="top-bar-section">
+					<ul class="right">
+						<li data-magellan-arrival="introduction-page"><a href="#introduction-page">Home</a></li>
+						<li data-magellan-arrival="nutrition-page"><a href="#nutrition-page">Nutrition Facts</a></li>
+						<li data-magellan-arrival="minerals-page"><a href="#minerals-page">Minerals</a></li>
+						<li data-magellan-arrival="exercises-page"><a href="#exercises-page">Exercises</a></li>
+					</ul>
+				</section>
+			</nav>
+		</div>
+	</header>
+
+	
+	<a name="introduction-page"></a>
+	<div class="page" id="introduction-page">
+		
+		<div class="introduction-body large-6 medium-6 columns">
+			
+			<h1 data-magellan-destination="introduction-page">What do you eat?</h1>
+			<p>Enter the informations, then scroll down to check it out</p>
+		
+		</div>
+
+
+		<div class="nav large-6 medium-6 columns">
+			<div style="position: absolute; z-index: 1; top: 10px; padding: 5px; color: white; left: 40%; background: none repeat scroll 0% 0% green; display: none;" id="ajaxLoader" class="ajax-loader">
+				<img width="20" height="20" src="img/loader.svg"> Loading... 
+			</div>
+		<!-- <div class="nav input-bar"> -->
+			<div class="large-8 medium-8 small-12 columns">
+				<label class="lbl-food-form">Food 1:</label>
+				<!--<div class="row collapse">
+					<div class="small-10 columns">
+						<input type="text" id="srchFoodText1" class="srch-food-text" list="suggestionDatalist"/>
+						<datalist id="suggestionDatalist" class="srch-food-datalist">
+						</datalist>
+					</div>	
+					<div class="small-2 columns">
+						<a class="button postfix bttSrchFood" for="srchFoodText1"><img src="img/icon_search.png" class="inline" /></a>
+					</div>
+				</div>-->
+				<select id="selectFood1" class="foodSelector">
+					<optgroup label="Hamburgers">
+						<option selected="true">Choose 1st food</option>
+						<option value="21233">MC Donald's Cheeseburger</option>
+						<option value="21251">Burger King Cheeseburger</option>
+						<option value="21214">SUBWAY Tuna Sub</option>
+						<option value="36014">French Fries</option>
+						<option value="36621">Sweet and Sour Chicken</option>
+						<option value="07090">Luncheon Sausage</option>
+						<option value="07080">Turkey Ham</option>
+						<option value="21107">Regular Hamburger Patty</option>
+						<option value="36405">Rice and Black Beans</option>
+					</optgroup>    
+				</select>
+			</div>
+			<div class="large-4 medium-4 small-12 columns">
+				<label class="lbl-food-form">Serving Size:</label>
+				<select id="selectServSize1" class="serv-size-selector">
+				</select>
+			</div>
+			<div class="large-8 medium-8 small-12 columns">
+				<label class="lbl-food-form">Food 2:</label>
+				<!--<div class="row collapse">
+					<div class="small-10 columns">
+						<input type="text" id="srchFoodText1" class="srch-food-text" list="suggestionDatalist"/>
+						<datalist id="suggestionDatalist" class="srch-food-datalist">
+						</datalist>
+					</div>
+					<div class="small-2 columns">
+						<a class="button postfix bttSrchFood" for="srchFoodText1"><img src="img/icon_search.png" class="inline" /></a>
+					</div>
+				</div>-->
+				<select id="selectFood2" class="foodSelector">
+					<optgroup label="Hamburgers">
+						<option selected="true">Choose 2nd food</option>
+						<option value="21233">MC Donald's Cheeseburger</option>
+						<option value="21251">Burger King Cheeseburger</option>
+						<option value="21214">SUBWAY Tuna Sub</option>
+						<option value="36014">French Fries</option>
+						<option value="36621">Sweet and Sour Chicken</option>
+						<option value="07090">Luncheon Sausage</option>
+						<option value="07080">Turkey Ham</option>
+						<option value="21107">Regular Hamburger Patty</option>
+						<option value="36405">Rice and Black Beans</option>
+					</optgroup>
+				</select>
+			</div>
+			<div class="large-4 medium-4 small-12 columns">
+				<label class="lbl-food-form">Serving Size:</label>
+				<select id="selectServSize2" class="serv-size-selector">
+				</select>
+			</div>
+			<div class="small-8-up medium-8  small-12 columns" id="weight-form">
+				<label class="lbl-food-form">Weight:</label> <div class="error"></div>
+				<input type="number" id="weight" placeholder="Your weight" required>
+			</div>
+
+			<div class="large-4 medium-4 small-12 columns">
+				<label class="lbl-food-form">Metric:</label>
+				<select id="weight-metric">
+					<option value="2.2">lb</option>
+					<option value="1">Kg</option>
+				</select>
+			</div>
+
+			<div class="large-12 medium-12 small-12 columns">
+			<button class="btt-check">Compare</button></div>
+		</div>
+
+	</div>
+
+	<a name="nutrition-page"></a>
+	<span data-magellan-destination="nutrition-page"></span>
+	<div class="page" id="nutrition-page">
+		<div class="row">
+			<h2>Nutrition Facts</h2>
+			<div class="large-3 medium-6 small-6 columns" id="panelFoodInfo1">
+				<div id="divServingSize1" class="div-serving-size"></div>
+			</div>
+			<div class="large-3 medium-6 small-6 columns" id="panelFoodInfo2">
+				<div id="divServingSize2" class="div-serving-size"></div>
+			</div>
+			<div class="large-6 columns" id="radarPanel">
+				<div id="radarPanel" class="radar-container">
+					<div id="results">
+						<label class="lbl-radar-placeholder">Choose the foods and click <b>Compare</b> to compare...<label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<a name="minerals-page"></a>
+	<span data-magellan-destination="minerals-page"></span>
+	<div class="page" id="minerals-page">
+		<div class="row">
+			<h2>Minerals and Vitamins</h2>
+	        <div id="bubbleChartContainer"></div>
         </div>
-    </header>
-    <div class="main-content">
-        <div class="container">
-            <div class="radar-chart-header cf">
-                <h2 class="chart-title">Nutrition Facts Overall</h2>
-                <div class="radar-menu-selection" style="display: none;">
-                    <label>Add a Food:</label>
-                    <input type="text" style="width: 60%;" />
-                    <button text="">Search</button>
-                </div>
-            </div>
-            <div class="dashb-painel-2cols cf">
-                    <div class="col-info col-info-food1">
-                        <label class="label-food">Food 1:</label>
-                        <select id="selectFood1" class="foodSelector">
-                            <optgroup label="Hamburgers">
-                                <option value="21233">MC Donald's Cheeseburger</option>
-                                <option value="21251">Burger King Cheeseburger</option>
-                                <option value="21214">SUBWAY Tuna Sub</option>
-                                <option value="36014">French Fries</option>
-                                <option value="36621">Sweet and Sour Chicken</option>
-                                <option value="07090">Luncheon Sausage</option>
-                                <option value="07080">Turkey Ham</option>
-                                <option value="21107">Regular Hamburger Patty</option>
-                                <option value="36405">Rice and Black Beans</option>
-                            </optgroup>    
-                        </select>
-                        <div class="panel-food-info" id="panelFoodInfo1">
-                            <div class="div-serving-size" id="divServingSize1">
-                            </div>
-                        </div>
-                        <button id="checkFood1" class="btt-check">Update</button>
-                    </div>
-                    <div class="col col-radar">
-                        <div class="radar-panel" id="radarPanel">
-                            <div id="results" class="radar-container">
-                                Choose the foods and click <b>Check</b> to compare...
-                            </div>
-                        </div>    
-                    </div>
-                    <div class="col-info col-info-food2">
-                        <label class="label-food">Food 2:</label>
-                        <select id="selectFood2" class="foodSelector">
-                            <optgroup label="Hamburgers">
-                                <option value="21233">MC Donald's Cheeseburger</option>
-                                <option value="21251">Burger King Cheeseburger</option>
-                                <option value="21214" selected="true">SUBWAY Tuna Sub</option>
-                                <option value="36014">French Fries</option>
-                                <option value="36621">Sweet and Sour Chicken</option>
-                                <option value="07090">Luncheon Sausage</option>
-                                <option value="07080">Turkey Ham</option>
-                                <option value="21107">Regular Hamburger Patty</option>
-                                <option value="36405">Rice and Black Beans</option>
-                            </optgroup>
-                        </select>
-                        
-                        <div class="panel-food-info" id="panelFoodInfo2">
-                            <div class="div-serving-size" id="divServingSize2">
-                            </div>
-                        </div>
+	</div>
 
-                        <button id="checkFood2" class="btt-check">Update</button>
-                    </div>
-            </div>
-            <h2 class="chart-title">Minerals and Vitamins</h2>
-            <div class="container">
-                <div id="bubbleChartContainer">
-                </div>
-            </div>
-        </div>
-    </div>
-    <footer>
+	<a name="exercises-page"></a>
+	<span data-magellan-destination="exercises-page"></span>
+	<div class="page" id="exercises-page">
+		<div class="row">
+			<h2>Physical Exercises Cost</h2>
+			<div class="exercises"></div>
+			<div id="barChart"></div>
+		</div>
+	</div>
 
-    </footer>
+	
+	<div class="" style="height:100px ;background-color:#022859" id="footer-page">
+		<center><p style="color:white;">Center for Technology in Government - 2014</p></center>
+	</div>
 
-    <!--[if lt IE 8]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
 
-    <!-- Add your site or application content here -->         
-    <script src="js/jquery.min.js"></script>
-    <script src="js/d3/d3.v3.js"></script>
-    <script src="js/d3/RadarChart.js"></script>
-    <script src="js/d3/d3plus.js"></script>
-    <script src="js/script.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $(".btt-check").click(function(){
-                var jxhr = [];
-                cleanFoodData();
-                
-                $.each($(".foodSelector"), function(i, foodSelector){
-                    jxhr.push(
-                        $.getJSON("secure/requestFood.php?food_id="+$(foodSelector).val(), function( data ) {
-                            pushFoodData(data);
-                        })
-                    );
-                });
+	<script src="js/vendor/jquery.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/d3/d3.v3.js"></script>
+	<script src="js/d3/RadarChart.js"></script>
+	<script src="js/d3/d3plus.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/exercises.js"></script>
+	<script src="js/foundation.min.js"></script>
 
-                $.when.apply($, jxhr).done(function() {
-                    createChart("results");
-                    $(".food-info").show();
-                });
-            });
+	<script type="text/javascript">
+		$(document).foundation();
+	</script>
+	<script type="text/javascript">
+		$( document ).ajaxStart(function() {
+		  $( "#ajaxLoader" ).show();
+		});
 
-            var jxhr = [];
-            cleanFoodData();
-            
-            $.each($(".foodSelector"), function(i, foodSelector){
-                jxhr.push(
-                    $.getJSON("secure/requestFood.php?food_id="+$(foodSelector).val(), function( data ) {
-                        pushFoodData(data);
-                    })
-                );
-            });
+		$( document ).ajaxStop(function() {
+		  $( "#ajaxLoader" ).hide();
+		});
+		$(document).ready(function(){
+				/*$(".srch-food-text").autocomplete({
+					source: function( request, response ) {
+			        $.ajax({
+			          url: "secure/searchFood.php",
+			          dataType: "jsonp",
+			          data: {
+			            q: request.term
+			          },
+			          success: function( data ) {
+			            return data.list.item;
+			          }
+			        });
+			      },
+			      minLength: 4,
+			      select: function( event, ui ) {
+			        console.log(ui.item);
+			      }
+				}).autocomplete( "instance" )._renderItem = function( ul, item ) {
+			      return $( "<li>" )
+			        .append( "<a>" + item.name +"</a>" )
+			        .appendTo( ul );
+			    };*/
 
-            $.when.apply($, jxhr).done(function() {
-                createChart("results");
-                $(".food-info").show();
-            });
-        });
-    </script>
-</body> 
-</html>
+			    $(document).ready(function () {
+					  //called when key is pressed in textbox
+					  $("#weight-form").keypress(function (e) {
+					     //if the letter is not digit then display error and don't type anything
+					     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+					        //display error message
+					        $(".error").html("Digits Only");
+					               return false;
+					    }
+					   });
+				});
+
+				$(".foodSelector").on("change", function(){
+					var index = $( ".foodSelector" ).index( this );
+					$.getJSON("secure/requestFood.php?food_id="+$(this).val(), function( data ) {
+						pushFoodData(data, index);
+					});		
+				});
+
+				$(".btt-check").on("click", function(event){
+					cleanFoodData();
+
+					createChart("results");
+					$(".food-info").show();
+
+					if($("#weight").val()){
+						exercises_function();			
+						$("html, body").animate({ scrollTop: $(window).height()}, 600);
+					}
+					else{
+						$('.error').text('Weight must be filled out');
+					}
+				});
+
+			});
+
+			/*$(".bttSrchFood").click(function(){
+				var inputSrch = $("#"+$(this).attr("for"));
+				$.getJSON("secure/searchFood.php?q="+inputSrch.val(), function( data ) {
+					var foodItems = data.list.item;
+					var datalistSug = $(inputSrch.attr("list"));
+
+					for(var i=0;i<foodItems.length;i++){
+						console.log(datalistSug);
+						$("<option/>", {"label":foodItems[i].name, "value":foodItems[i].ndbno}).appendTo("#"+inputSrch.attr("list"));
+					}
+				});
+			});*/
+	</script>
+
+</body>

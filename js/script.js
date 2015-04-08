@@ -1,37 +1,34 @@
 /**
-	1 - Protein
-	2 - Total lipid (fat)
-	3 - Carbohydrate, by difference
-	20 - Fiber, total dietary
-	26 - Sodium, Na
-	89 - Cholesterol
+	SOURCE: http://www.fda.gov/Food/GuidanceRegulation/GuidanceDocumentsRegulatoryInformation/LabelingNutrition/ucm064928.htm
+
+	SOURCE Vitamin E: http://ods.od.nih.gov/factsheets/VitaminE-HealthProfessional/
 
 	Nutrients not found: Biotin, Panthotenic acid, Iodine, Selenium, Copper, Manganese
 **/
 var dvValues = {
-	"1":50,
-	"2":65,
-	"3":300,
-	"20":25,
-	"25":3500,
-	"26":2400,
-	"89":300,
-	"32":5000,
-	"52":60,
-	"21":1000,
-	"22":18,
-	"38":400,
-	"37":15, //source: http://ods.od.nih.gov/factsheets/VitaminE-HealthProfessional/
-	"63":80,
-	"53":1.5,
-	"54":1.7,
-	"55":20,
-	"57":2,
-	"66":400,
-	"59":6,
-	"24":1000,
-	"23":400,
-	"27":15
+	"203":50, //Protein
+	"204":65, //Total lipid (fat)
+	"205":300, //Carbohydrate, by difference
+	"291":25, //Fiber, total dietary
+	"306":3500, //Potassium, K
+	"307":2400, //Sodium, Na
+	"601":300, //Cholesterol
+	"318":5000, //Vitamin A, IU
+	"401":60, //Vitamin C, total ascorbic acid
+	"301":1000, //Calcium, Ca
+	"303":18, //Iron, Fe
+	"324":400, //Vitamin D
+	"323":15, //Vitamin E (alpha-tocopherol)
+	"430":80, //Vitamin K (phylloquinone)
+	"404":1.5, //Thiamin
+	"405":1.7, //Riboflavin
+	"406":20, //Niacin
+	"415":2, //Vitamin B6
+	"417":400, //Folate, total
+	"418":6, //Vitamin B12
+	"305":1000, //Phosphorus
+	"304":400,  //Magnesium, Mg
+	"309":15 //Zinc
 }
 
 var foodData = [];
@@ -157,15 +154,15 @@ function foodDataToCharts(dataFood, k){
 
 	for(var i = 0; i<nutrients.length;i++){
 
-		switch(nutrients[i].id){
-			case 1:
-			case 2:
-			case 3:
-			case 20:
-			case 26:
-			case 89:
+		switch(nutrients[i].nutrient_id){
+			case 203:
+			case 204:
+			case 205:
+			case 291:
+			case 307:
+			case 601:
 				var nutName = "";
-				if(nutrients[i].id==3){
+				if(nutrients[i].nutrient_id==205){
 					nutName = "Carbohydrate";
 				}else{
 					nutName = nutrients[i].name;
@@ -175,14 +172,14 @@ function foodDataToCharts(dataFood, k){
 					//console.log(k);
 					//console.log(nutrients[i]);
 				}
-				radarAxisData.push({axis: nutName, value: ((nutrients[i].measures[selMeasures[k-1]].value/dvValues[""+nutrients[i].id])).toFixed(2)});
-				maxValue = d3.max([((nutrients[i].measures[selMeasures[k-1]].value/dvValues[""+nutrients[i].id])).toFixed(2), maxValue]);
+				radarAxisData.push({axis: nutName, value: ((nutrients[i].measures[selMeasures[k-1]].value/dvValues[""+nutrients[i].nutrient_id])).toFixed(2)});
+				maxValue = d3.max([((nutrients[i].measures[selMeasures[k-1]].value/dvValues[""+nutrients[i].nutrient_id])).toFixed(2), maxValue]);
 				break;
 			default:
-				if(dvValues[""+nutrients[i].id] != undefined){
+				if(dvValues[""+nutrients[i].nutrient_id] != undefined){
 					bubbleChartData.push(
 						{
-						 "value": (nutrients[i].measures[selMeasures[k-1]].value/dvValues[""+nutrients[i].id])*100,
+						 "value": (nutrients[i].measures[selMeasures[k-1]].value/dvValues[""+nutrients[i].nutrient_id])*100,
 						 "name": (nutrients[i].name.indexOf(",")==-1? nutrients[i].name : nutrients[i].name.substring(0, (nutrients[i].name.indexOf(",")))),
 						 "group": nutrients[i].group,
 						 "food": dataFood.name
